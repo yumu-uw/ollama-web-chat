@@ -126,7 +126,7 @@ function App() {
 				>
 					<styled.textarea
 						ref={textareaRef}
-						placeholder="送信するメッセージ(Shift+Enterで改行、Alt+Enterで送信)"
+						placeholder="送信するメッセージ(Enterで改行、Alt+Enterで送信)"
 						resize={"none"}
 						rows={1}
 						maxHeight={240}
