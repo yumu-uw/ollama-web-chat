@@ -134,6 +134,7 @@ function App() {
 						value={input}
 						onKeyDown={(e) => {
 							if (e.key === "Enter" && e.altKey) {
+								e.preventDefault();
 								sendChat();
 							}
 						}}
