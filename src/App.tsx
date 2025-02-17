@@ -79,9 +79,16 @@ function App() {
 			if (done) {
 				break;
 			}
-			const j = JSON.parse(decoder.decode(value)) as ResponseData;
-			output += j.message.content;
-			setOllamaResopnse((prev) => prev + j.message.content);
+			decoder
+				.decode(value)
+				.split(/\r?\n/)
+				.map((v) => {
+					if (v !== "") {
+						const j = JSON.parse(v) as ResponseData;
+						output += j.message.content;
+						setOllamaResopnse((prev) => prev + j.message.content);
+					}
+				});
 		}
 		const newMessages: Chat[] = [
 			...chatHistory,
