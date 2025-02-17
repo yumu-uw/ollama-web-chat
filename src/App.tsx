@@ -135,7 +135,7 @@ function App() {
 					gap={2}
 					p={"0.5em"}
 					borderRadius={"lg"}
-					bg={"gray.100"}
+					bg={"gray.200"}
 				>
 					<styled.textarea
 						ref={textareaRef}
