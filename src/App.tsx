@@ -115,7 +115,13 @@ function App() {
 				padding={"1em"}
 				justify={"space-between"}
 			>
-				<Box ref={chatRef} marginEnd={"auto"} overflow={"auto"} w={"100%"}>
+				<Box
+					ref={chatRef}
+					marginEnd={"auto"}
+					overflow={"auto"}
+					w={"100%"}
+					pr={"1.5em"}
+				>
 					<ChatView chatHistory={chatHistory} />
 					{ollamaResopnse !== "" && (
 						<>

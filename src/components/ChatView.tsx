@@ -16,12 +16,28 @@ const ChatView = memo(({ chatHistory }: Props) => {
 
 	return (
 		<>
-			{chatHistory.map((value) => {
+			{chatHistory.map((value, index) => {
 				if (value.role === "user") {
-					return <UserMessageView message={value.content} />;
+					return (
+						<UserMessageView
+							key={`usermsg-${
+								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+								index
+							}`}
+							message={value.content}
+						/>
+					);
 				}
 				if (value.role === "assistant") {
-					return <MarkdownView mdStr={value.content} />;
+					return (
+						<MarkdownView
+							key={`assistantmsg-${
+								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+								index
+							}`}
+							mdStr={value.content}
+						/>
+					);
 				}
 			})}
 		</>
