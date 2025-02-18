@@ -10,7 +10,7 @@ code.hljs {
 /* ライトテーマ */
 body[data-theme="light"] .hljs {
   color: #24292e;
-  background: #ffffff;
+  background: #f6f8fa;
 }
 body[data-theme="light"] .hljs-doctag,
 body[data-theme="light"] .hljs-keyword,

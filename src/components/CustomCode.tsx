@@ -1,51 +1,17 @@
 import { AppThemeContext } from "@/context/AppTheme";
 import { supportLangs } from "@/lib/custom-highlight";
 import { use, useState } from "react";
-import { Box, Flex, HStack, styled } from "styled-system/jsx";
+import { Box, Flex, HStack, Spacer, styled } from "styled-system/jsx";
 
 interface Props {
 	classAttr: string | undefined;
 	value: React.ReactNode;
 }
 
-// const Tooltip = ({
-// 	text,
-// 	isVisible,
-// 	children,
-// }: { text: string; isVisible: boolean; children: React.ReactNode }) => {
-// 	return (
-// 		<Box position="relative" display="inline-block">
-// 			{children}
-// 			{isVisible && (
-// 				<Box
-// 					position="absolute"
-// 					top="100%"
-// 					left="50%"
-// 					transform="translateX(-50%)"
-// 					mb="4px"
-// 					bg="gray.800"
-// 					color="white"
-// 					px="8px"
-// 					py="4px"
-// 					borderRadius="md"
-// 					fontSize="sm"
-// 					whiteSpace="nowrap"
-// 					boxShadow="md"
-// 					zIndex="10"
-// 				>
-// 					{text}
-// 				</Box>
-// 			)}
-// 		</Box>
-// 	);
-// };
-
-const MessageInputAreaVStack = styled(HStack, {
+const MessageInputAreaHStack = styled(HStack, {
 	base: {
-		mt: "-16px",
-		mx: "-16px",
-		pt: "16px",
-		px: "16px",
+		py: "1em",
+		px: "1em",
 		fontWeight: "bold",
 	},
 	variants: {
@@ -91,9 +57,10 @@ export default function CustomCode({ classAttr, value }: Props) {
 		}, 1500);
 	};
 	return (
-		<Flex direction={"column"} gap={4}>
-			<MessageInputAreaVStack variants={appTheme}>
-				<styled.p marginEnd={"auto"}>{classAttr?.split("-")[1]}</styled.p>
+		<Flex direction={"column"}>
+			<MessageInputAreaHStack variants={appTheme}>
+				{classAttr?.split("-")[1]}
+				<Spacer />
 				{!hasCopied && (
 					<Box verticalAlign={"middle"}>
 						<styled.button onClick={handleCopyButton}>
@@ -132,7 +99,7 @@ export default function CustomCode({ classAttr, value }: Props) {
 						コピーしました！
 					</Box>
 				)}
-			</MessageInputAreaVStack>
+			</MessageInputAreaHStack>
 			<code className={lang}>{value}</code>
 		</Flex>
 	);
