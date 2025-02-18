@@ -13,7 +13,7 @@ import python from "highlight.js/lib/languages/python";
 import rust from "highlight.js/lib/languages/rust";
 import typescript from "highlight.js/lib/languages/typescript";
 import yaml from "highlight.js/lib/languages/yaml";
-import "highlight.js/styles/github.min.css";
+import "@/github-highlight.css";
 
 hljs.registerLanguage("bash", bash);
 hljs.registerLanguage("css", css);
